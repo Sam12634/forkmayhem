@@ -1,5 +1,19 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script src="script.js"></script>
-  </body>
-</html>
+<body>
+<script>
+// Each call yields to the event loop, so the stack never overflows.
+// With delay 0, the browser schedules the next call as soon as possible,
+// keeping the core busy.
+function burn() {
+  // Do some work to actually consume CPU
+  let x = 0;
+  for (let i = 0; i < 1e6; i++) {
+    x += Math.sqrt(i);
+  }
+  setTimeout(burn, 0); // schedule next iteration
+}
+burn();
+</script>
+</body>
+</html>   
