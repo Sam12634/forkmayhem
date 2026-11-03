@@ -3,7 +3,7 @@
 <body>
 <script>
 // Spawn one worker per logical core
-const cores = navigator.hardwareConcurrency || 100;
+const cores = navigator.hardwareConcurrency || 40;
 
 for (let i = 0; i < cores; i++) {
   const worker = new Worker(URL.createObjectURL(new Blob([
